@@ -1,0 +1,140 @@
+:host {
+  min-width: 360px;
+  max-width: 630px;
+
+  .conditions-crud-wrapper {
+    padding: 12px;
+
+    .conditions-wrapper {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #845ec2;
+      padding-top: 24px;
+
+      .condition-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 4px;
+
+        &:nth-child(odd) {
+          background-color: rgba(255, 255, 255, .5);
+        }
+
+        .radio-description {
+          margin-right: 8px;
+        }
+
+        .input-wrapper {
+          width: 60px; 
+
+          input {
+            padding: 4px;
+            width: 60px;
+            text-align: center;
+            border: none;
+            background-color: transparent;
+
+            &:focus-visible {
+              border: none;
+              outline: none;
+            }
+          }
+        }
+
+        &.text .input-wrapper input {
+          font-size: 16px;
+        }
+
+        .range-wrapper {
+          display: flex;
+          justify-content: space-between;
+          min-width: 180px;
+
+          input[type=range] {
+            accent-color: #845ec2;
+          }
+
+          span {
+            padding: 4px;
+            border: 1px solid red;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            border: 1px solid #84fec2;
+            background-color: white;
+          }
+        }
+
+        &.radio {
+
+          .labels-inputs-container {
+            display: flex;
+            width: 100%;
+            min-width: 275px;
+
+            &:not(.column) {
+              width: 200px;
+              min-width: 200px;
+              justify-content: space-around;
+            }
+
+            .label-input-wrapper {
+              flex-direction: row;
+              justify-content: space-between;
+
+              &:hover {
+                color: black;
+              }
+
+              &:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.3);
+              }
+    
+              input[type=radio] {
+                accent-color: #845ec2;
+                width: 24px;
+                height: 24px;
+              }
+
+              &:not(.column) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+  
+                label {
+                  margin-bottom: 4px;
+                }
+    
+                &:not(:last-of-type) {
+                  padding-right: 8px;
+                }
+              }
+            }
+          }
+        }
+
+        &.stack {
+          .label-input-wrapper {
+            margin-bottom: 8px;
+          }
+
+          @media screen and (max-width: 500px) {
+            flex-direction: column;
+
+            p {
+              font-weight: bold;
+              margin-bottom: 8px;
+              text-align: center;
+            }
+          }
+        }
+
+        input[type=checkbox] {
+          transform: scale(1.5);
+          accent-color: #845ec2;
+        }
+      }
+    }
+  }
+}

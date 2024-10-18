@@ -1,0 +1,38 @@
+<div class="configurations-wrapper">
+  <div class="explanation">
+    <h2>Before practicing or running simulations customize your game.</h2>
+    <div class="bullet-wrapper">
+      <span class="material-symbols-outlined">hov</span>
+      <p>Choose pre-set conditions, strategies and configurations, or build <b>and save</b> your own.</p>
+    </div>
+    <div class="bullet-wrapper">
+      <span class="material-symbols-outlined">hov</span>
+      <p>Customize table conditions and rules to match any game you find.</p>
+    </div>
+    <div class="bullet-wrapper">
+      <span class="material-symbols-outlined">hov</span>
+      <p>Customize play charts as well as strategies for spreading bets, wonging, unit resizing or even tipping.</p>
+    </div>
+    <div class="bullet-wrapper">
+      <span class="material-symbols-outlined">hov</span>
+      <p>Experiment with new counting systems</p>
+    </div>
+    <div class="bullet-wrapper">
+      <span class="material-symbols-outlined">hov</span>
+      <p>Create players with different combinations of strategies and bankrolls.</p>
+    </div>
+    <div class="bullet-wrapper">
+      <span class="material-symbols-outlined">hov</span>
+      <p>Create tables with different players and table conditions.</p>
+    </div>
+  </div>
+
+  @for(config of configs; track config;) {
+    <a [routerLink]="config.link">
+      <div class="config-info">
+        <p class="config-title">{{config.title}}</p>
+        <p class="config-tagline">{{config.tagLine}}</p>
+      </div>
+    </a>
+  }
+</div>

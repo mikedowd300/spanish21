@@ -1,0 +1,45 @@
+<div class="table-config-wrapper">
+  <strategy-selector
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.TABLE_CONFIG"
+    [activeStrategy$]="activeStrategy$"
+  ></strategy-selector>
+  <div class="content">
+    <div class="select-info conditions">
+      <label for="">Select the conditions you want</label>
+      <div class="select-wrapper">
+        <select (change)="handleSelectConditionsTitle($event)">
+          @for(cTitle of this.conditionsTitles; track cTitle) {
+            <option 
+              [value]="cTitle" 
+              [selected]="cTitle === activeStrategy.conditionsTitle"
+            >
+              {{cTitle}}
+            </option>
+          }  
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="table">
+  @for(spot of tableSpots$ | async; track spot; let index = $index) {
+    <div class="spot" [class.bottom]="spot.playerConfigTitle">
+    @if(spot.playerConfigTitle) {
+      <p>{{spot.playerConfigTitle}}</p>
+      <button (click)="removeFromSeat(spot.playerConfigTitle, index)">Remove</button>
+    } @else {
+      <div class="select-wrapper">
+        <select (change)="addPlayerToSpot($event, index + 1)">
+          <option [value]="">Select player</option>
+        @for(player of availablePlayers; track player) {
+          <option [value]="player">{{player}}</option>
+        }
+        </select>
+      </div>
+    }
+    </div>
+  }
+  </div>
+</div>

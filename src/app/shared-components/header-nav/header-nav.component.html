@@ -1,0 +1,36 @@
+@if(headerService.showHeader$ | async) {
+<div class="header-nav-wrapper">
+  <h1>{{title}}</h1>
+  <div class="links-wrapper">
+    <div class="link-wrapper">
+      <a 
+        routerLink="/" 
+        routerLinkActive="selected" 
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        <p>Home</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/configurations" routerLinkActive="selected">
+        <p>Strategies</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/practice" routerLinkActive="selected">
+        <p>Practice</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/simulation" routerLinkActive="selected">
+        <p>Simulation</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/deviations" routerLinkActive="selected">
+        <p>Deviations</p>
+      </a>
+    </div>
+  </div>
+</div>
+} 

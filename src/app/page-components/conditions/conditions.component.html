@@ -1,0 +1,73 @@
+<div class="conditions-crud-wrapper">
+  <strategy-selector
+    [activeStrategy$]="activeStrategy$"
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.CONDITIONS"
+  ></strategy-selector>
+
+  <div class="conditions-wrapper">
+  @for(rule of checkboxInputRules; track rule; let index = $index) {
+    <div class="condition-wrapper">
+      <label [for]="rule.ruleName + '-' + index">{{rule.description}}</label>
+      <input 
+        [type]="rule.inputType" 
+        [id]="rule.ruleName + '-' + index" 
+        [checked]="activeStrategy[rule.ruleName]"
+        (change)="updateCheckboxInput($event, rule.ruleName)"
+      >
+    </div>
+  } 
+
+  @for(rule of numberInputRules; track rule; let index = $index) {
+    <div class="condition-wrapper text">
+      <label [for]="rule.ruleName + '-' + index">{{rule.description}}</label>
+      <div class="input-wrapper">
+        <input 
+          [type]="rule.inputType" 
+          [id]="rule.ruleName + '-' + index" 
+          [(ngModel)]="activeStrategy[rule.ruleName]"
+          (change)="updateNumberInput($event, rule)"
+        >
+      </div>
+    </div>
+  } 
+
+  @for(rule of rangeInputRules; track rule; let index = $index) {
+    <div class="condition-wrapper">
+      <label [for]="rule.ruleName + '-' + index">{{rule.description}}</label>
+      <div class="range-wrapper">
+        <input 
+          [type]="rule.inputType" 
+          [id]="rule.ruleName + '-' + index" 
+          [(ngModel)]="activeStrategy[rule.ruleName]"
+          [min]="rule.min"
+          [max]="rule.max"
+          (change)="updateRangeInput($event, rule)"
+        >
+        <span>{{activeStrategy[rule.ruleName]}}</span>
+      </div>
+    </div>
+  } 
+
+  @for(rule of radioInputRules; track rule; let index = $index) {
+    <div class="condition-wrapper radio" [class.stack]="rule.displayInColumn">
+      <p class="radio-description">{{rule.description}}</p>
+      <div class="labels-inputs-container" [class.column]="rule.displayInColumn">
+      @for(val of rule.radioValues; track val) {
+        <div class="label-input-wrapper" [class.column]="rule.displayInColumn">
+          <label [for]="rule.ruleName + '-' + index">{{val}}</label>
+          <input 
+            [type]="rule.inputType" 
+            [id]="rule.ruleName + '-' + index" 
+            [checked]="activeStrategy[rule.ruleName] === val"
+            (change)="updateRadioInput(rule, val)"
+          >
+        </div>
+      }
+      </div>
+    </div>
+  } 
+  </div>
+</div>

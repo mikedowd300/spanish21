@@ -1,0 +1,142 @@
+:host {
+  width: 100%;
+
+  .replay-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: #00c9a7;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .dealer-wrapper {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .return-x {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        box-shadow: none;
+      }
+
+      .cards-wrapper {
+        display: flex;
+        width: 100%;
+        padding: 12px 12px 8px;
+        box-sizing: border-box;
+        justify-content: center;
+
+        .card {
+          padding-left: 8px;
+          box-sizing: border-box;
+
+          img {
+            height: 100px;
+          }
+        }
+      }
+
+      .row {
+        justify-content: space-between;
+  
+        p {
+          margin: 0 0 12px;
+          padding: 0 8px;
+        }
+  
+        button {
+          background-color: #845EC2;
+          font-size: 14px;
+          margin: -4px 2px 2px 0;
+          padding: 2px 8px;
+          box-shadow: none;
+        }
+      }
+    }
+
+    .spots-wrapper {
+      width: 100%;
+      padding: 8px 0;
+      margin: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: nowrap;
+
+      .spot-wrapper {
+        border: .3px solid rgba(255, 255, 255, .2);
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        &.empty {
+          width: 20%;
+        }
+
+        .hands-wrapper {
+          display: flex;
+          width: 100%;
+
+          .hand-wrapper {
+            width: 80%;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+
+            .cards-wrapper {
+              display: flex;
+              flex-direction: column-reverse;
+
+              img {
+                width: 100%;
+                max-width: 50px;
+
+                &:not(:first-child) {
+                  margin-bottom: -40%;
+
+                  &.four {
+                    margin-bottom: -50%;
+                  }
+                  &.five {
+                    margin-bottom: -60%;
+                  }
+                  &.six {
+                    margin-bottom: -70%;
+                  }
+                  &.seven {
+                    margin-bottom: -80%;
+                  }
+                  &.eight {
+                    margin-bottom: -90%;
+                  }
+                }
+              }
+            }
+            
+            .hand-info {
+              margin: 2px 0;
+              font-size: 12px;
+            }
+          }
+        }
+
+        .spot-info {
+          margin: 2px 0;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

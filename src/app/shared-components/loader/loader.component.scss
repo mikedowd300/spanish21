@@ -1,0 +1,37 @@
+.loader-wrapper {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.with-header {
+    height: 80vh;
+  }
+
+  .loader {
+    border: 12px solid #B39CD0;
+    border-top: 12px solid #845EC2;
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    animation: spin 2s linear infinite;
+
+    @media only screen and (max-width: 500px) {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  @keyframes spin {
+
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

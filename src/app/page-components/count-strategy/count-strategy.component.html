@@ -1,0 +1,61 @@
+<div class="count-strategy-wrapper">
+  <strategy-selector
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.COUNT"
+    [activeStrategy$]="activeStrategy$"
+  ></strategy-selector>
+  <div class="content">
+    <p class="directions">Set the desired count value for each card value!</p>
+    <div class="count-chart-wrapper">
+    @for(card of firstCards; track card;) {
+      <div class="card-info-wrapper">
+        <label>{{card}}</label>
+        <div class="input-wrapper">
+          <input 
+            type="number"
+            [(ngModel)]="activeStrategy.count[card]"
+          >
+        </div>
+      </div>
+    }
+    </div>
+    <div class="count-chart-wrapper">
+      @for(card of middleCards; track card;) {
+        <div class="card-info-wrapper">
+          <label>{{card}}</label>
+          <div class="input-wrapper">
+            <input 
+              type="number"
+              [(ngModel)]="activeStrategy.count[card]"
+            >
+          </div>
+        </div>
+      }
+      </div>
+    <div class="count-chart-wrapper">
+      @for(card of lastCards; track card;) {
+        <div class="card-info-wrapper">
+          <label>{{card}}</label>
+          <div class="input-wrapper">
+            <input 
+              type="number"
+              [(ngModel)]="activeStrategy.count[card]"
+            >
+          </div>
+        </div>
+      }
+      </div>
+  </div>
+  
+  <div class="card-info-wrapper running-count">
+    <label>Start running count at:</label>
+    <div class="input-wrapper">
+      <input 
+        type="number"
+        [(ngModel)]="activeStrategy.runningCountStartsAt"
+      >
+    </div>
+  </div>
+</div>

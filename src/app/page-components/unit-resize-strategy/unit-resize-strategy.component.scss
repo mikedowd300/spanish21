@@ -1,0 +1,128 @@
+:host {
+
+  .unit-resize-wrapper {
+    padding: 12px;
+
+    .content {
+      max-width: 604px;
+      margin: auto;
+      padding-top: 24px;
+      border-top: 1px solid #845ec2;
+
+      .button-group {
+        margin-bottom: 12px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .resize-headers {
+        border: 1px solid #00c9a7;
+        box-sizing: border-box;
+
+        div {
+          padding: 8px;
+          box-sizing: border-box;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+
+          p {
+            max-width: 100%;
+            overflow: hidden;
+          }
+        }
+      }
+
+      .resize-headers, .strategy-row {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        border-right: 1px solid #00c9a7;
+
+        &:nth-of-type(odd) {
+          background-color: rgba(255, 255, 255, .9);
+        }
+
+        .input-wrapper {
+          border-bottom: 1px solid #00c9a7;
+          border-left: 1px solid #00c9a7;
+
+          input {
+            box-sizing: border-box;
+            width: calc(100% - 4px);
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            background-color: transparent;
+            text-align: center;
+            color: #845ec2;
+          }
+
+          &.inactive {
+            background-color: #845ec2;
+          }
+        }
+
+        .unit-increase {
+          border-left: 1px solid #00c9a7;
+          border-right: 1px solid #00c9a7;
+        }
+      }
+
+      .first-column {
+        width: 26%;
+      }
+
+      .second-column {
+        width: 37%;
+      }
+
+      .third-column {
+        width: 37%;
+      }
+
+      .rounding-options {
+        display: flex;
+        margin-top: 24px;
+        justify-content: space-between;
+
+        .rounder {
+          box-sizing: border-box;
+          max-width: 50%;
+          border: 1px solid #00c9a7;
+          background-color: #845ec2;
+          color: #fbeaff;
+          padding: 12px;
+          font-size: 18px;
+          border-radius: 3px;
+
+          p {
+            margin-top: 0;
+            font-size: 20px;
+          }
+
+          .radio-option {
+            display: flex;
+            justify-content: space-between;
+
+            &:first-of-type {
+              margin-bottom: 16px;
+            }
+
+            label {
+              font-size: 18px;
+            }
+            
+            input[type=radio] {
+              transform: scale(2);
+              accent-color: #845ec2;
+              margin-left: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

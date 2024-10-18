@@ -1,0 +1,57 @@
+<div class="replay-wrapper">
+  <div class="dealer-wrapper">
+    <button (click)="showReplay$.next(false)" class="return-x">X</button>
+    <div class="cards-wrapper">
+    @for(card of activeRound.dealer.cards; track card) {
+      <div class="card">
+        <img [src]="card.image" [alt]="card.name">
+      </div>
+    }
+    </div>
+  
+    <div class="row">
+      <p class="hand-id">Hand {{ activeRound.shoe.handId }}</p>
+      @if(activeRound.dealer.didBust) {
+      <p class="dealer-outcome">Dealer Busts</p>
+      } @else if(activeRound.dealer.hasBlackjack) {
+      <p class="dealer-outcome">Dealer has Blackjack</p>
+      } @else {
+      <p class="dealer-outcome">Dealer has {{ activeRound.dealer.value }}</p>
+      }
+      @if(activeRound.roundId < maxRound) {
+      <button (click)="getNextRound()">Next</button>
+      }
+    </div>
+  </div>
+  <div class="spots-wrapper">
+  @for(spot of activeRound.spots; track spot) {
+    <div class="spot-wrapper" [class.empty]="spot.status === 'available'">
+      <div class="hands-wrapper">
+        @for(hand of spot.hands; track hand) {
+          <div class="hand-wrapper">
+            <div class="cards-wrapper">
+            @for(card of hand.cards; track card) {
+              <img 
+                [class.four]="hand.cards.length === 4"
+                [class.five]="hand.cards.length === 5"
+                [class.six]="hand.cards.length === 6"
+                [class.seven]="hand.cards.length === 7"
+                [class.eight]="hand.cards.length >= 8"
+                [src]="card.image" 
+                [alt]="card.name"
+              >
+            }
+            </div>
+            <p class="hand-info">{{ hand.actions.join(' ') }}</p>
+            <p class="hand-info">Bet: {{ hand.betSize }} Won: {{ hand.winnings }}</p>
+          </div>
+        }
+      </div>
+    @if(spot.playerHandle) {
+      <p class="spot-info">{{ spot.playerHandle }}, TC: {{ trueCounts[spot.playerHandle] }}</p>
+      <p class="spot-info">{{ bankrolls[spot.playerHandle] }}</p>
+    }
+    </div>
+  }
+  </div>
+</div>

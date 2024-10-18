@@ -1,0 +1,125 @@
+:host {
+
+  .table-config-wrapper {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    strategy-selector {
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .content {
+      border-top: 1px solid #b45ec2;
+      padding-top: 24px;
+      max-width: 700px;
+      width: 100%;
+
+      .select-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        label {
+          font-size: 24px;
+        }
+
+        .select-wrapper {
+          background-color: white;
+          border: 1px solid #00c9a7;
+          border-radius: 3px;
+          margin: 6px 0;
+
+          select {
+            border: none;
+            padding: 8px;
+            text-align: center;
+            font-size: 20px;
+            color: #b45ec2;
+          }
+        }
+      }
+    }
+
+    .table {
+      box-sizing: border-box;
+      padding: 8px;
+      background-color: #845ec2;
+      border: #00c9a7;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row-reverse;
+      width: 100vw;
+      max-width: calc(100vw - 40px);
+      margin-top: 24px;
+
+      .spot {
+        width: 50%;
+        border: 1px solid #fbeaff;
+        padding: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        color: #fbeaff;
+        height: 200px;
+        justify-content: flex-start;
+
+        &.bottom {
+          justify-content: flex-end;
+        }
+
+        p {
+          text-align: center;
+          margin-bottom: 0;
+          font-size: 18px;
+        }
+
+        button {
+          margin-top: 16px;
+          overflow: hidden;
+        }
+
+        .select-wrapper {
+          background-color: white;
+          border: 1px solid #00c9a7;
+          padding: 0;
+          box-sizing: border-box;
+
+          select {
+            border: none;
+            font-size: 14px;
+            color: #845ec2;
+            text-align: center;
+            padding: 8px 0;
+            box-sizing: border-box;
+            width: 100%;
+            height: 32px;
+            word-wrap: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+// <div class="table">
+//   @for(spot of tableSpots$ | async; track spot; let index = $index) {
+//     <div class="spot" [class.bottom]="spot.playerConfigTitle">
+//     @if(spot.playerConfigTitle) {
+//       <p>{{spot.playerConfigTitle}}</p>
+//       <button (click)="removeFromSeat(spot.playerConfigTitle, index)">Remove</button>
+//     } @else {
+//       <select (change)="addPlayerToSpot($event, index + 1)">
+//         <option [value]="">Select a player</option>
+//       @for(player of availablePlayers; track player) {
+//         <option [value]="player">{{player}}</option>
+//       }
+//       </select>
+//     }
+//     </div>
+//   }
+//   </div>

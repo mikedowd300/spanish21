@@ -1,0 +1,33 @@
+<div class="deviation-charts-wrapper">
+  <h1>Deviation Charts</h1>
+  
+  @if(outerDataKeys.length > 1) {
+  <div class="section column conditions-config">
+    <p class="section-description">Select A Conditions Config</p>
+    <div class="select-wrapper widest">
+      <select name="players-cards" id="" (change)="updateActiveDataKey($event)">
+      @for(key of outerDataKeys; track key) {
+        <option [value]="key" [selected]="key === activeDataKey">{{ key }}</option>
+      }  
+      </select>
+    </div>
+  </div>
+  }
+  <div class="section row center-items center-horizontally">
+    <p class="section-description">Select the palyers cards</p>
+    <div class="select-wrapper">
+      <select name="players-cards" id="" (change)="updatePlayersCards($event)">
+      @for(combo of playerFirst2Combo; track combo) {
+        <option [value]="combo" [selected]="combo === selectedPlayersCards">{{ combo }}</option>
+      }  
+      </select>
+    </div>
+  </div>
+
+  @for(chartId of chartIds; track chartId) {
+  <h1>Against a dealer's {{ chartId }}</h1>  
+  <div class="canvas-wrapper">
+    <canvas [id]="chartId"></canvas>
+  </div>
+  }
+</div>

@@ -1,0 +1,55 @@
+:host {
+  width: 100%;
+
+  .bankroll-chart-wrapper {
+    overflow: scroll;
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: #00c9a7;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .return-x {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .row-wrapper {
+      width: 220px;
+
+      button {
+        background-color: #845ec2;
+      }
+
+      .select-wrapper {
+        padding: 2px;
+        border: 1px solid #845ec2;
+        border-radius: 3px;
+        width: 120px;
+        background-color: white;
+  
+        select {
+          border: none;
+          font-size: 18px;
+          color: #845ec2;
+          padding-right: 8px;
+          width: 100%;
+          padding: 6px 8px;
+        }
+      }
+    }
+
+    .canvas-wrapper {
+      margin-top:24px;
+      background-color: white;
+    }
+  }
+}

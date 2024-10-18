@@ -1,0 +1,91 @@
+<div class="unit-resize-wrapper">
+  <strategy-selector
+    [activeStrategy$]="activeStrategy$"
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.UNIT_RESIZE"
+  ></strategy-selector>
+  <div class="content">
+    <div class="button-group">
+      <button (click)="addRow()">Add Row</button>
+      @if(activeStrategy.unitProgression.length > 1) {
+        <button (click)="deleteRow()">Delete Row</button>
+      }
+    </div>
+    <div class="resize-headers">
+      <div class="unit-progression first-column">
+        <p>Unit Progression</p>
+      </div>
+      <div class="unit-increase second-column">
+        <p>Increase unit when bankroll reaches:</p>
+      </div>
+      <div class="unit-decrease third-column">
+        <p>Decrease unit when bankroll reaches:</p>
+      </div>
+    </div>
+  @for(unitSize of activeStrategy.unitProgression; track unitSize; let index = $index) {
+    <div class="strategy-row">
+      <div class="input-wrapper first-column">
+        <input type="number" [(ngModel)]="activeStrategy.unitProgression[index]">
+      </div>
+      <div 
+        class="input-wrapper second-column"
+        [class.inactive]="index === activeStrategy.increaseAtMultiple.length - 1"
+      >
+      @if(index !== activeStrategy.increaseAtMultiple.length - 1) {
+        <input type="number" [(ngModel)]="activeStrategy.increaseAtMultiple[index]">
+      }
+      </div>
+      <div 
+        class="input-wrapper third-column"
+        [class.inactive]="index === 0"
+      >
+      @if(index !== 0) {
+        <input type="number" [(ngModel)]="activeStrategy.decreaseAtMultiple[index]">
+      } 
+      </div>
+    </div>
+  }
+  <div class="rounding-options">
+    <div class="rounder">
+      <p>Round to the nearest:</p>
+      <div class="radio-option">
+        <label for="">white chip</label>
+        <input 
+          type="radio" 
+          [checked]="activeStrategy.roundToNearest === chipTypeEnum.WHITE"
+          (click)="setRoundTo(chipTypeEnum.WHITE)"
+        >
+      </div>
+      <div class="radio-option">
+        <label for="">red chip</label>
+        <input 
+          type="radio"
+          [checked]="activeStrategy.roundToNearest === chipTypeEnum.RED"
+          (click)="setRoundTo(chipTypeEnum.RED)"
+        >
+      </div>
+    </div>
+    <div class="rounder">
+      <p>Rounding method:</p>
+      <div class="radio-option">
+        <label for="">round up</label>
+        <input 
+          type="radio"
+          [checked]="activeStrategy.roundingMethod === roundingMethod.UP"
+          (click)="setRoundingMethod(roundingMethod.UP)"
+        >
+      </div>
+      <div class="radio-option">
+        <label for="">round down</label>
+        <input 
+          type="radio"
+          [checked]="activeStrategy.roundingMethod === roundingMethod.DOWN"
+          (click)="setRoundingMethod(roundingMethod.DOWN)"
+        >
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

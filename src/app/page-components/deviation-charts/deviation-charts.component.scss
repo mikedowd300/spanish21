@@ -1,0 +1,53 @@
+:host {
+  width: 100%;
+  box-sizing: border-box;
+
+  .select-wrapper {
+    border: 1px solid #84fec2;
+    width: 60px;
+    background-color: white;
+    height: 32px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    margin: 0 12px;
+
+    &.widest {
+      width: 700px;
+    }
+
+    select {
+      padding: 6px;
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      font-size: 16px;
+      text-align: center;
+      outline: none;
+    }
+  }
+
+  .deviation-charts-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    h1 {
+      width: 100%;
+      text-align: center;
+    }
+
+    .conditions-config {
+      align-items: center;
+    }
+  }
+
+  .section {
+
+    .section-description {
+      font-size: 18px;
+    }
+  }
+}

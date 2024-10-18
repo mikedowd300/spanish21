@@ -1,0 +1,178 @@
+:host {
+
+  .bet-spread-strategy-wrapper {
+    padding: 16px 16px 24px;
+    max-width: 604px;
+
+    .top-border {
+      border-top: 1px solid #845ec2;
+      margin-top: 12px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-top: 1px solid #845ec2;
+
+      .directions {
+        font-size: 24px;
+        font-weight: 600;
+
+        &:nth-child(2) {
+          margin-top: 0;
+        }
+      }
+
+      .chart-wrapper {
+        width: 100%;
+
+        .row {
+
+          .margin-left {
+            margin-left: 12px;
+          }
+
+          button {
+            width: 100px;
+
+            @media screen and (max-width: 400px) {
+              width: 80px;
+            }
+          }
+        }
+
+        .column-headers {
+          display: flex;
+          justify-content: center;
+          background-color: rgba(255, 255, 255, .7);
+          font-size: 24px;
+          font-weight: 600;
+          width: calc(100% - 224px);
+          box-sizing: border-box;
+          min-width: 160px;
+
+          div {
+            padding: 12px;
+            border: 1px solid #845ec2;
+            font-size: 18px;
+            color: black;
+          }
+        }
+
+        .button-group {
+          display: flex;
+          justify-content: space-between;
+          margin: 12px 0;
+        }
+
+        .check-box-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-top: 12px;
+          margin-top: 16px;
+
+          label {
+            font-size: 18px;
+            margin-right: 16px;
+          }
+
+          input[type=checkbox] {
+            accent-color: #845ec2;
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        .radios-wrapper {
+          margin-top: 12px;
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .radio-wrapper {
+            display:flex;
+            align-items: center;
+
+            label {
+              padding-right: 12px;
+            }
+
+            input[type=radio] {
+              accent-color: #845ec2;
+              width: 24px;
+              height: 24px;
+            }
+          } 
+        }
+      }
+
+      .spread-wrapper {
+        display: flex;
+        justify-content: center;
+        font-size: 24px;
+        color: black;
+
+        &:nth-child(odd) {
+
+          .input-wrapper {
+            background-color: rgba(255, 255, 255, .7);
+          }
+        }
+
+        .input-group {
+          width: calc(100% - 224px);
+          min-width: 160px;
+        }
+
+        .input-wrapper {
+          padding: 12px;
+          box-sizing: border-box;
+          border: 1px solid #845ec2;
+
+          input {
+            border: none;
+            font-size: 24px;
+            background-color: transparent;
+            text-align: center;
+            width: 100%;
+          }
+        }
+
+        .space {
+          width: 112px;
+
+          @media screen and (max-width: 400px) {
+            max-width: 92px;
+          }
+        }
+      }
+
+      .first-column {
+        width: calc(.2 * (100% + 224px));
+        min-width: 80px;
+        box-sizing: border-box;
+        text-align: center;
+        overflow: hidden;
+
+        @media screen and (max-width: 400px) {
+          width: calc(.2 * (100% + 184px));
+        }
+      }
+
+      .second-column {
+        width: calc(.6 * (100% + 224px));
+        min-width: 80px;
+        box-sizing: border-box;
+        text-align: center;
+        overflow: hidden;
+
+        @media screen and (max-width: 400px) {
+          width: calc(.2 * (100% + 184px));
+        }
+      }
+    }
+  }
+}

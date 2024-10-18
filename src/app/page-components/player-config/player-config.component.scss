@@ -1,0 +1,116 @@
+:host {
+  width: 100%;
+
+  .player-config-wrapper {
+    max-width: 604px;
+    margin: auto;
+    padding: 16px;
+
+    strategy-selector {
+      display: block;
+      width: 100%
+    }
+
+    .content {
+
+      .line {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px;
+        padding: 8px 0;
+        align-items: center;
+
+        &:nth-child(odd) {
+          background-color: rgba(255, 255, 255, .7);
+        } 
+
+        .input-wrapper {
+          border: 1px solid #00c9a7;
+          border-radius: 3px;
+          padding: 8px;
+          background-color: white;
+          margin-left: 12px;
+
+          input {
+            width: 100%;
+            border: none;
+            font-size: 18px;
+            text-align: center;
+            background-color: transparent;
+            color: #845ec2;
+            width: 200px;
+          }
+        }
+
+        .select-wrapper {
+          border: 1px solid #00c9a7;
+          border-radius: 3px;
+          padding: 8px;
+          background-color: white;
+          margin-left: 12px;
+
+          select {
+            width: 100%;
+            border: none;
+            font-size: 18px;
+            text-align: center;
+            background-color: transparent;
+            color: #845ec2;
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// <div class="tipping-strategy-wrapper">
+//   <strategy-selector
+//     [activeStrategy$]="activeStrategy$"
+//     [title]="title"
+//     [defaultStrategiesObj]="defaultStrategiesObj"
+//     [defaultStrategy]="defaultStrategy"
+//     [strategyEnumType]="localStorageItemsEnum.PLAYER_CONFIG"
+//   ></strategy-selector>
+//   <div class="content">
+//     <div class="description line">
+//       <label>What makes this player unique?</label>
+//       <div class="input-wrapper">
+//         <input 
+//           type="text"
+//           [(ngModel)]="activeStrategy.description"
+//         >
+//       </div>
+//     </div>
+//     <div class="betting-unit line">
+//       <label>Initial betting unit</label>
+//       <div class="input-wrapper">
+//         <input 
+//           type="number"
+//           [(ngModel)]="activeStrategy.initialBettingUnit"
+//         >
+//       </div>
+//     </div>
+//     <div class="bankroll line">
+//       <label>Initial bankroll</label>
+//       <div class="input-wrapper">
+//         <input 
+//           type="number"
+//           [(ngModel)]="activeStrategy.initialBankroll"
+//         >
+//       </div>
+//     </div>
+//   @for(strategy of strategyTitles; track strategy; let index = $index) {
+//     <div class="select-info line">
+//       <label for="">{{selectLabels[index]}}</label>
+//       <select (change)="selectStrategy($event, strategy)">
+//         @for(title of strategyLists[strategy]; track title) {
+//           <option [value]="title">{{title}}</option>
+//         }  
+//         </select>
+//     </div>
+//   }
+//   </div>
+// </div>

@@ -1,0 +1,41 @@
+<div class="roi-chart-wrapper">
+  <button (click)="showRoiChart$.next(false)" class="return-x">X</button>
+  <div class="row row-wrapper">
+    <div class="select-wrapper">
+      <select (change)="handleSelectHandle($event)">
+      @for(target of selectableChartTargets; track target) {
+        <option 
+          [value]="target" 
+          [selected]="target === (activeTarget$ | async)"
+        >
+          {{ target }}
+        </option>
+      }  
+      </select>
+    </div>
+    <div class="select-wrapper">
+      <select (change)="handleSelectRoundingMethod($event)">
+      @for(method of countRoundingMethods; track method) {
+        <option 
+          [value]="method" 
+          [selected]="method === (selectedRoundingMethod$ | async)"
+        >
+          {{method}}
+        </option>
+      }  
+      </select>
+    </div>
+    <div class="input-wrapper">
+      <input type="number"  min="1" max="20" (change)="updateChartRange($event)">
+    </div>
+  </div>
+  <div class="canvas-wrapper">
+    <canvas id="total-winnings-chart"></canvas>
+  </div>
+  <div class="canvas-wrapper">
+    <canvas id="average-winnings-chart"></canvas>
+  </div>
+  <div class="canvas-wrapper">
+    <canvas id="roi-chart"></canvas>
+  </div>
+</div>

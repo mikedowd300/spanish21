@@ -1,0 +1,124 @@
+<div class="deviations-wrapper">
+  <div class="intro-row row">
+    <h1>Compute and Compare Deviations</h1>
+  </div>
+  @if(engine.showDeviationResultsSpinner$ | async) {
+    <loader [withHeader]="true"></loader>
+  }
+  @if(!(engine.showDeviationResultsSpinner$ | async)) {
+  <div class="content-wrapper">
+    <div class="row center-items center-horizontally">
+      <p>Find the perfect way to play</p>
+      <div class="select-wrapper">
+        <select name="players-cards" id="" (change)="updateChartKey($event, 'players-cards')">
+        @for(combo of playerFirst2Combo; track combo) {
+          <option [value]="combo" [selected]="combo === playersCards">{{ combo }}</option>
+        }  
+        </select>
+      </div>
+      <p> against a dealers</p>
+      <div class="select-wrapper">
+        <select name="dealers-up-cards" id="" (change)="updateChartKey($event, 'dealers-up-cards')">
+        @for(card of dealersUpCards; track card) {
+          <option [value]="card" [selected]="card === dealersCard">{{ card }}</option>
+        }  
+        </select>
+      </div>
+    </div>
+    <p class="section-description">With the following table conditions:</p>
+    <div class="deviation-table-conditions-wrapper row center-items center-horizontally">
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.RSA.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.RSA.value"
+          (click)="setDeviationTableCondition($event, 'RSA')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.DAS.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.DAS.value"
+          (click)="setDeviationTableCondition($event, 'DAS')"
+          >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.RD.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.RD.value"
+          (click)="setDeviationTableCondition($event, 'RD')"
+          >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.RRD.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.RRD.value"
+          (click)="setDeviationTableCondition($event, 'RRD')"
+          >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.DoubleOn.description }}</label>
+        <div class="select-wrapper">
+          <select (change)="setDeviationTableCondition($event, 'DoubleOn')">
+          @for(val of doubleDownOnVals; track val) {
+            <option [value]="val">{{ val }}</option>
+          }  
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row center-items center-horizontally">
+      <p class="section-title">At the following stage of a hand</p>
+      <div class="select-wrapper widest">
+        <select (change)="updateHandStage($event)">
+        @for(stage of handStages; track stage) {
+          <option [value]="stage">{{ stage }}</option>
+        }  
+        </select>
+      </div>
+    </div>
+    <hr>
+    <div class="row center-items center-horizontally">
+      <p>Simulate</p>
+      <div class="number-input-wrapper wider">
+        <input
+          type="number"
+          [(ngModel)]="instances"
+          min="0"
+        >
+      </div>
+      <p> rounds</p>
+    </div>
+    <hr>
+    @if(bonusExceptions.length > 0) {
+    <div class="bonus-exceptions">
+      <p class="section-description">Account for bonus-able card totals on first 2 cards</p>
+      <div class="exceptions-section-wrapper">
+      @for(exception of bonusExceptions; track exception) {
+        <div class="exception-wrapper row">
+          <label>{{exception.description}}</label>
+          <div class="radio-wrapper">
+            <input 
+              type="radio" 
+              [checked]="exception.value"
+              (click)="updateBonusExceptions(exception)"
+            >
+          </div>
+        </div>
+      }
+      </div>
+    </div>
+    }
+    <div class="row center-horizontally">
+      <button (click)="findIndexPlays()" class="deviations-button">Compute Index Plays</button>
+      <button (click)="goToPage()" class="deviations-button">
+        <a routerLink="/deviation-charts" routerLinkActive="selected">Compare Index Results</a>
+      </button>
+    </div>
+  </div>
+  }
+</div>

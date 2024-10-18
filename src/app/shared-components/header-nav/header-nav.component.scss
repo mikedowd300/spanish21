@@ -1,0 +1,57 @@
+:host {
+  width: 100%;
+
+  .header-nav-wrapper {
+    width: 100%;
+    background-color: #845ec2;
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 12px 0 4px;
+    }
+
+    .links-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: scroll;
+      box-sizing: border-box;
+      padding: 0 5px 2px 50px;
+
+      .link-wrapper {
+        padding: 4px 4px 2px;
+        border-radius: 3px;
+        margin-right: 12px;
+  
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+
+          &.selected {
+            text-decoration: underline;
+          }
+
+          p {
+            margin: 0;
+            white-space: nowrap;
+          }
+        }
+  
+        &:hover {
+          background-color: #b39cd0;
+
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
