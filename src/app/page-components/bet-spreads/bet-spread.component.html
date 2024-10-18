@@ -1,0 +1,100 @@
+<div class="bet-spread-strategy-wrapper">
+  <strategy-selector
+    [activeStrategy$]="activeStrategy$"
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.BET_SPREAD"
+  ></strategy-selector>
+  <div class="content">
+    <p class="directions">The betting unit for the minimum count shown will be the unit for counts below that.</p>
+
+    <p class="directions">The betting unit for the maximum count shown will be the unit for counts above that.</p>
+
+    <div class="chart-wrapper">
+      <div class="row">
+        <button (click)="addTopSpread()">{{ addTopRowText }}</button>
+        <div class="column-headers">
+          <div class="first-column">
+            <p>Count</p>
+          </div>
+          <div class="second-column">
+            <p>Betting Units</p>
+          </div>
+        </div>
+      @if(spreads.length > 1) {
+        <button (click)="deleteTopSpread()" class="margin-left">{{ deleteTopRowText }}</button>
+      }
+      </div>
+    @for(spread of spreads; track spread; let index = $index;) {
+      <div class="spread-wrapper">
+        <div class="space"></div>
+        <div class="row input-group">
+          <div class="input-wrapper first-column">
+            <span>{{ spread[0] }}</span>
+          </div>
+          <div class="input-wrapper second-column">
+            <input 
+              type="number"
+              [(ngModel)]="spread[1]"
+              (change)="updateActiveStrategy()"
+            >
+          </div>
+        </div>
+        <div class="space"></div>
+      </div>
+    }
+      <div class="button-group">
+        <button (click)="addBottomSpread()">{{ addBottomRowText }}</button>
+        @if(spreads.length > 1) {
+          <button (click)="deleteBottomSpread()">{{ deleteBottomRowText }}</button>
+        }
+      </div>
+      <div class="check-box-wrapper top-border">
+        <label>Use half count?</label>
+        <input 
+          (change)="adjustChart()" 
+          type="checkbox" 
+          [(ngModel)]="activeStrategy.useHalfCount"
+        >
+      </div>
+      <div class="column top-border">
+        <p class="instructions">
+          Rounding your count down would treat TC 1.98 like TC 1 and TC -.98 like TC 0
+        </p>
+        <p class="instructions">
+          Rounding your count off would treat TC 1.49 like TC 1 and TC 1.5 like TC 2
+        </p>
+        <div class="radios-wrapper">
+          @for(option of roundingOptions; track option;) {
+          <div class="radio-wrapper">
+            <label>{{option}}</label>
+            <input
+              [checked]="option === activeStrategy.roundingMethod"
+              type="radio"
+              [value]="option"
+              (change)="handleRoundingPreference(option)"
+            />
+          </div>
+          }
+        </div>
+      </div>
+      <div class="column top-border">
+        <p>If a betsize adjusts to a decimal, it will be rounded to the next white or red chip.</p>
+        <div class="radios-wrapper">
+          @for(option of betRoundingOptions; track option;) {
+          <div class="radio-wrapper">
+            <label>{{option}}</label>
+            <input
+              [checked]="option === activeStrategy.roundBetToNearest"
+              type="radio"
+              [value]="option"
+              (change)="handleBetRounding(option)"
+            />
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+:host {
+
+  .configurations-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px 12px 12px;
+    justify-content: center;
+    max-width: 750px;
+
+    .explanation {
+      width: 90%;
+      margin: 0 48px;
+
+      h2 {
+        font-size: 18px;
+        margin-top: 0;
+      }
+
+      .bullet-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 12px;
+
+        span {
+          display: flex;
+          align-items: center;
+          margin-right: 2px;
+          font-size: 18px;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        margin: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      width: 45%;
+
+      @media screen and (max-width: 500px) {
+        width: 100%;
+      }
+
+      .config-info {
+        border: 1px solid #00c9a7;
+        padding: 4px;
+        margin: 12px;
+        text-align: center;
+        background-color: #845ec2;
+        border-radius: 2px;
+        color: #fbeaff;
+        max-height: 81px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #bc9cd0;
+        }
+
+        &:visited {
+          color: #845ec2;
+        }
+
+        .config-title {
+          font-weight: 800;
+          font-size: 20px;
+          margin: 8px 0 0;
+          text-decoration: underline;
+        }
+
+        .config-tagline {
+          margin-top: 12px 0 8px;
+        }
+      }
+    }
+  }
+}

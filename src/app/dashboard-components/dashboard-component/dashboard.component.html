@@ -1,0 +1,44 @@
+<div class="dashboard-wrapper">
+@if(showLoader$ | async) {
+  <loader></loader>
+}
+@if(!(showLoader$ | async)) {
+  <div class="dashboard-wrapper">
+    <button class="button-tile" (click)="showReplay$.next(true)">Replay Hands</button>
+    <button class="button-tile" (click)="showBankrollChart$.next(true)">Bankroll Chart</button>
+    <button class="button-tile" (click)="showRoiChart$.next(true)">Roi Chart</button>
+    <button class="button-tile" (click)="showStreakInfo$.next(true)">Losing Streaks</button>
+    <!-- <p>Bar Chart of total winnings at each count</p>
+    <p>Bar chart of average winnings at each count</p>
+    <p>Bar chart of ROI at each count</p>
+    <p># of losing streaks greater than 100, 1000, 10000, 100000 rounds</p>
+    <p>Down swings in terms of betting units and duration</p> -->
+    <p>Win rate for 16 against a A at counts from -10 to + 10 when the player hits stay or surrenders</p>
+    <p>Win rate for 16 against a 10 at counts from -10 to + 10 when the player hits stay or surrenders</p>
+    <p>Win rate for 16 against a 9 - 2 at counts from -10 to + 10 when the player hits stay or surrenders</p>
+    <p>Same for 15, 14, 13, 12</p>
+    <p>???</p>
+  </div>
+}
+@if(!(showLoader$ | async) && (showReplay$ | async)) {
+  <replay
+    [rounds]="rounds$ | async"
+    [showReplay$]="showReplay$"
+    [activeRoundIndex]="activeRoundIndex$ | async"
+  ></replay>
+}
+@if(!(showLoader$ | async) && (showBankrollChart$ | async)) {
+  <bankroll-chart
+    [bankrollData]="this.bankrollData$ | async"
+    [showBankrollChart$]="showBankrollChart$"
+    [replayHandAtIndex$]="replayHandAtIndex$"
+  ></bankroll-chart>
+}
+@if(!(showLoader$ | async) && (showRoiChart$ | async)) {
+  <roi-chart
+    [showRoiChart$]="showRoiChart$"
+    [rounds$]="rounds$"
+    [handles]="uiToLogicService.playerHandles"
+  ></roi-chart>
+}
+</div>

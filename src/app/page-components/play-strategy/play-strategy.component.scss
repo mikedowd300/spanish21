@@ -1,0 +1,115 @@
+:host {
+  overflow: scroll;
+  width: 100%;
+
+  .play-chart-wrapper {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    strategy-selector {
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .content {
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 1px solid #845ec2;
+      padding-top: 36px;
+
+      .info {
+        width: 100%;
+        max-width: 1065px;
+        font-size: 20px;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 24px;
+      }
+
+      .play-chart {
+        display: flex;
+        box-sizing: border-box;
+        flex-wrap: nowrap;
+        justify-content: center;
+
+        @media screen and (max-width: 1065px) {
+          justify-content: left;
+        }
+
+        .row-headers {
+          padding-top: 45px;
+          border-right: 1px solid black;
+
+          .row-header {
+            height: 75px;
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 24px 8px;
+            font-size: 24px;
+            text-align: center;
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+            width: 60px;
+            background-color: #845ec2;
+            color: #fbeaff;
+          }
+        }
+
+        .chart-columns {
+          display: flex;
+          flex-wrap: nowrap;
+
+          .upcard-column {
+
+            span.chart-header {
+              display: inline-block;
+              padding: 8px;
+              font-size: 24px;
+              text-align: center;
+              width: 100%;
+              border-right: 1px solid black;
+              border-bottom: 1px solid black;
+              height: 45px;
+              box-sizing: border-box;
+              background-color: #845ec2;
+              color: #fbeaff;
+              margin-bottom: 1.4px;
+  
+              &:last-child {
+                border-right: none;
+              }
+            }
+
+            .column {
+              border-right: 1px solid black;
+
+              .cell-wrapper {
+                border-bottom: 1px solid black;
+
+                .options-input-wrapper, .conditions-input-wrapper {
+                  width: 100px;
+                  overflow: hidden;
+                  padding: 8.5px 2px;
+                  background-color: white;
+                  text-align: center;
+
+                  input {
+                    width: 100px;
+                    overflow: hidden;
+                    border: none;
+                    text-align: center;
+                    font-size: 16px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

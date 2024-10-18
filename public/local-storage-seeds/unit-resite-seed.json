@@ -1,0 +1,16 @@
+{
+  "Unit Resize Seed": {
+    "title": "Unit Resize Seed",
+    "unitProgression": [
+      1, 1.2, 1.4, 1.6, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 10
+    ],
+    "increaseAtMultiple": [
+      1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, null
+    ],
+    "decreaseAtMultiple": [
+      null, 0, 1100, 1300, 1500, 1700, 1900, 2100, 2300, 2500, 2700, 2900, 3100, 3300
+    ],
+    "roundToNearest": "red chip",
+    "roundingMethod": "Round up"
+  }
+}

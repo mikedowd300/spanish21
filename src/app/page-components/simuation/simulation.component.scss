@@ -1,0 +1,204 @@
+:host {
+  width: 100%;
+
+  .simulation-wrapper {
+    width: 100%;
+
+    .intro-row {
+      justify-content: space-between;
+      width: 100%;
+
+      .start-sim-button {
+        display: none;
+
+        &.show {
+          display: inline-block;
+          margin: 16px 0 0 16px;
+          font-size: 24px;
+          width: 200px;
+        }
+      }
+
+      h1 {
+        width: calc(100% - 100px);
+        padding-left: 100px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 16px;
+        font-size: 24px;
+
+        &.with-button {
+          width: calc(100% - 100px - 216px);
+          padding-left: 0;
+          padding-right: 116px;
+        }
+
+        @media only screen and (max-width: 935px) {
+          margin-bottom: 0;
+        }
+
+        @media only screen and (max-width: 720px) {
+          width: calc(100% - 60px);
+          font-size: 18px;
+          padding-left: 20px;
+        }
+      }
+
+      .exit-to-header {
+        text-decoration: none;
+        display: block;
+        width: 100px;
+        padding: 12px;
+        box-sizing: border-box;
+        font-size: 32px;
+        text-align: center;
+
+        @media only screen and (max-width: 720px) {
+          font-size: 24px;
+          width: 60px;
+        }
+      }
+    }
+
+    .table-wrapper {
+      background-color: #00c9a7;
+      padding: 16px;
+      margin: 0 16px 16px;
+      border-radius: 4px;
+      color: #fbeaff;
+
+      .select-row {
+        justify-content: space-around;
+
+        label {
+          font-size: 24px;
+        }
+
+        .select-wrapper {
+          border: 1px solid #c4fcef;
+          border-radius: 3px;
+          background-color: white;
+
+          select {
+            padding: 8px;
+            border: none;
+            text-align: center;
+            font-size: 24px;
+            width: 100%;
+          }
+
+          &.iterations.hide {
+            display: none;
+          }
+        }
+
+        .custom-rounds-input {
+          display: none;
+          width: 200px;
+
+          &.show {
+            border: 1px solid #c4fcef;
+            display: inline;
+            border-radius: 3px;
+
+            input {
+              padding: 8px;
+              box-sizing: border-box;
+              border: none;
+              text-align: center;
+              font-size: 24px;
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .table-container {
+        border-top: 1px solid white;
+        margin-top: 24px;
+
+        .top-row-wrapper {
+          padding: 16px;
+
+          .table-condition {
+            box-sizing: border-box;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+            border-radius: 3px;
+
+            p {
+              font-size: 18px;
+              margin: 0;
+              text-align: center;
+              padding: 4px 0;
+              border-radius: 3px;
+            }
+
+            &:nth-child(odd) {
+              background-color: rgba(255, 255, 255, .4);
+            }
+          }
+        }
+        
+        .bj-payout {
+          font-size: 24px;
+          text-align: center;
+
+          @media only screen and (max-width: 935px) {
+            margin-top: 0;
+          }
+        }
+
+        .spots-wrapper {
+          width: 100%;
+
+          .spot-wrapper {
+            padding: 12px;
+            border: 1px solid white;
+            border-radius: 3px;
+            width: 25%;
+
+            .spot-title {
+              font-size: 18px;
+              background-color: rgba(255, 255, 255, .4);
+              text-align: center;
+              padding: 8px 4px;
+              border-radius: 3px;
+              margin-bottom: 0;
+
+              @media only screen and (max-width: 935px) {
+                margin-top: 0;
+              }
+            }
+
+            span {
+
+              .spot-description {
+                text-align: center;
+                margin-bottom: 0;
+              }
+
+              .spot-value {
+                margin-top: 4px;
+                text-align: center;
+                font-weight: 600;
+              }
+
+              &:nth-child(odd) {
+                background-color: rgba(255, 255, 255, .4);
+              }
+
+              @media only screen and (max-width: 935px) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

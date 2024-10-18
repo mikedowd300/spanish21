@@ -1,0 +1,16 @@
+{
+  "Tipping Seed": {
+    "title": "Tipping Seed",
+    "tipToBetsizeRatios": [ [1, 50], [5, 500] ],
+    "maxTip": 5,
+    "afterBlackjack": true,
+    "dealerJoins": true,
+    "dealerLeaves": true,
+    "tipFirstHandOfShoe": false,
+    "playerIncreasesBet": false,
+    "everyXHands": null,
+    "tipSplitHandToo": false,
+    "doubleOnDouble": false,
+    "tipWongHands": false
+  }
+}

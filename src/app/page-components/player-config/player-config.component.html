@@ -1,0 +1,50 @@
+<div class="player-config-wrapper">
+  <strategy-selector
+    [activeStrategy$]="activeStrategy$"
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.PLAYER_CONFIG"
+  ></strategy-selector>
+  <div class="content">
+    <div class="description line">
+      <label>What makes this player unique?</label>
+      <div class="input-wrapper">
+        <input 
+          type="text"
+          [(ngModel)]="activeStrategy.description"
+        >
+      </div>
+    </div>
+    <div class="betting-unit line">
+      <label>Initial betting unit</label>
+      <div class="input-wrapper">
+        <input 
+          type="number"
+          [(ngModel)]="activeStrategy.initialBettingUnit"
+        >
+      </div>
+    </div>
+    <div class="bankroll line">
+      <label>Initial bankroll</label>
+      <div class="input-wrapper">
+        <input 
+          type="number"
+          [(ngModel)]="activeStrategy.initialBankroll"
+        >
+      </div>
+    </div>
+  @for(strategy of strategyTitles; track strategy; let index = $index) {
+    <div class="select-info line">
+      <label for="">{{selectLabels[index]}}</label>
+      <div class="select-wrapper">
+        <select (change)="selectStrategy($event, strategy)">
+          @for(titleList of strategyLists[strategy]; track titleList) {
+            <option [value]="titleList" [selected]="titleList === activeStrategy[titlePropertyMap[strategy]]">{{titleList}}</option>
+          }  
+        </select>
+      </div>
+    </div>
+  }
+  </div>
+</div>

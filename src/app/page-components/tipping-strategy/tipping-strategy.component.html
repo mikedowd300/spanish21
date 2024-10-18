@@ -1,0 +1,60 @@
+<div class="tipping-strategy-wrapper">
+  <strategy-selector
+    [activeStrategy$]="activeStrategy$"
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.TIPPING"
+  ></strategy-selector>
+
+  <div class="tipping-content">
+    <div class="how-much content-section">
+      <h3>How Much to Tip</h3>
+      <div class="button-group">
+        <button (click)="addTippingPoint()">Add Breakpoint</button>
+        <button (click)="deleteTippingPoint()">Delete Breakpoint</button>
+      </div>
+    @for(ratio of activeStrategy.tipToBetsizeRatios; track ratio) {
+      <div class="tipping-breakpoint">
+        <span>Tipping units of $</span>
+        <input type="number" [(ngModel)]="ratio[0]" min="1" max="100">
+        <span> for bets of $</span>
+        <input type="number" [(ngModel)]="ratio[1]" min="1" max="10000">
+        <span> or less</span>
+      </div>
+    }
+    @if(activeStrategy.tipToBetsizeRatios.length > 0) {
+      <div class="tipping-breakpoint">
+        <span>Tipping units of $</span>
+        <input type="number" [(ngModel)]="activeStrategy.maxTip" min="1" max="100">
+        <span> above that.</span>
+      </div>
+    }
+    </div>
+    <div class="how-often content-section">
+      <h3>How Often to Tip</h3>
+      @for(key of howOftenTippingBooleanKeys; track key) {
+        <div class="tipping-opportunity">
+          <span>{{keyDescriptionMap[key]}}</span>
+          <input type="checkbox" [(ngModel)]="activeStrategy[key]">
+        </div>
+      }  
+      @for(key of howOftenTippingNumberKeys; track key) {
+        <div class="tipping-opportunity number">
+          <span>{{keyDescriptionMap[key][0]}}</span>
+          <input type="number" [(ngModel)]="activeStrategy[key]">
+          <span>{{keyDescriptionMap[key][1]}}</span>
+        </div>
+      }  
+    </div>
+    <div class="extended-tips content-section">
+      <h3>Split, Doubled and Wonged Hands</h3>
+      @for(key of wongSplitDoubleTippingKeys; track key) {
+      <div class="special-oportunities">
+        <span>{{keyDescriptionMap[key]}}</span>
+        <input type="checkbox" [(ngModel)]="activeStrategy[key]">
+      </div>
+      }  
+    </div>
+  </div>
+</div>

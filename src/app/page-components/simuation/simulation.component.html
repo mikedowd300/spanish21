@@ -1,0 +1,107 @@
+<div class="simulation-wrapper">
+  <div class="intro-row row">
+    <button #startSimButton
+      class="start-sim-button" 
+      [class.show]="showSimButton" 
+      (click)="startSim()"
+    >
+      Start Sim
+    </button>
+    <h1 [class.with-button]="showSimButton">Select a Table and Number of Rounds To Sim</h1>
+    <a class="exit-to-header" routerLink="/configurations">X</a>
+  </div>
+  <div class="table-wrapper">
+    <div class="select-row row">
+      <div>
+        <label for="">Select a table</label>
+        <div class="select-wrapper">
+          <select (change)="selectTable($event)">
+          @for(tableTitle of allTableTitles; track tableTitle;) {
+            <option [value]="tableTitle">{{tableTitle}}</option>
+          }
+          </select>
+        </div>
+      </div>
+      <div class="column">
+        <label for="">Rounds played</label>
+        <div class="select-wrapper iterations" [class.hide]="showCustomRoundsUI">
+          <select (change)="selectIteration($event)">
+          @for(option of iterationOptions; track option;) {
+            <option [value]="option">{{option}}</option>
+          }
+          </select>
+        </div>
+        <div class="custom-rounds-input" [class.show]="showCustomRoundsUI">
+          <input type="number" (change)="selectIteration($event)">
+        </div>
+      </div>
+    </div>
+    <div class="table-container">
+      <div class="top-row-wrapper row">
+        <span class="table-condition">
+          <p>Max: {{ activeConditions.maxBet }}</p>
+        </span>
+        <span class="table-condition">
+          <p>Min: {{ activeConditions.minBet }}</p>
+        </span>
+        <span class="table-condition">
+          <p>{{ activeConditions.S17 ? 'S17' : 'H17' }}</p>
+        </span>
+        <span class="table-condition">
+          <p>Max Splits {{ activeConditions.MHFS }}</p>
+        </span>
+        <span class="table-condition">
+          <p>{{ activeConditions.RSA ? 'RSA' : 'No RSA' }}</p>
+        </span>
+        <span class="table-condition">
+          <p>{{ activeConditions.LCD ? 'LCD' : 'No LCD' }}</p>
+        </span>
+        <span class="table-condition">
+          <p>{{ activeConditions.decksPerShoe }} Decks with {{ activeConditions.shufflePoint }}% penn</p>
+        </span>
+      </div>
+      <p class="bj-payout">Blackjack pays {{ activeConditions.payRatio }}</p>
+      <div class="spots-wrapper row">
+      @for(spot of spots; track spot;) {
+        <div class="spot-wrapper column">
+          @if(spot !== null) {
+            <p class="spot-title">{{ spot.title.value }}</p>
+            <span>
+              <p class="spot-description">{{ spot.bankroll.description }}</p>
+              <p class="spot-value">{{ spot.bankroll.value }}</p>
+            </span>
+            <span>
+              <p class="spot-description">{{ spot.bettingUnit.description }}</p>
+              <p class="spot-value">{{ spot.bettingUnit.value }}</p>
+            </span>
+            <span>
+              <p class="spot-description">{{ spot.playStategy.description }}</p>
+              <p class="spot-value">{{ spot.playStategy.value }}</p>
+            </span>
+            <span>
+              <p class="spot-description">{{ spot.spreadStrategy.description }}</p>
+              <p class="spot-value">{{ spot.spreadStrategy.value }}</p>
+            </span>
+            <span>
+              <p class="spot-description">{{ spot.tippingStrategy.description }}</p>
+              <p class="spot-value">{{ spot.tippingStrategy.value }}</p>
+            </span>
+            <span>
+              <p class="spot-description">{{ spot.resizeStrategy.description }}</p>
+              <p class="spot-value">{{ spot.resizeStrategy.value }}</p>
+            </span>
+            <span>
+              <p class="spot-description">{{ spot.wongingStrategy.description }}</p>
+              <p class="spot-value">{{ spot.wongingStrategy.value }}</p>
+            </span>
+            <span>
+              <p class="spot-description">{{ spot.countingStratgey.description }}</p>
+              <p class="spot-value">{{ spot.countingStratgey.value }}</p>
+            </span>
+          }
+        </div>
+      }
+      </div>
+    </div>
+  </div>
+</div>

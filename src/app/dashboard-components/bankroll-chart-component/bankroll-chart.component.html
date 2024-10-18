@@ -1,0 +1,53 @@
+<div class="bankroll-chart-wrapper">
+  <button (click)="showBankrollChart$.next(false)" class="return-x">X</button>
+
+  <div class="row row-wrapper">
+    <div class="select-wrapper">
+      <select (change)="handleSelectHandle($event)">
+      @for(handle of handles; track handle) {
+        <option 
+          [value]="handle" 
+          [selected]="handle === activeHandle"
+        >
+          {{handle}}
+        </option>
+      }  
+      </select>
+    </div>
+    <div class="zoom-wrapper">
+      <button (click)="setZoomMode()">Zoom</button>
+    </div>
+  </div>
+  
+  <div class="canvas-wrapper">
+    <canvas id="myChart" (click)="onCanvasClick($event)"></canvas>
+  </div>
+
+  <div class="summary">
+    <span></span>
+    <p>
+      <span>Starting Bankroll: </span>
+      <span>{{ playerStartingBankroll }}</span>
+    </p>
+    <p>
+      <span>Ending Bankroll: </span>
+      <span>{{ playerEndingBankroll }}</span>
+    </p>
+    <p>
+      <span>Money Bet: </span>
+      <span>{{ moneyBetByPlayer }}</span>
+    </p>
+    <p>
+      <span>Money Won: </span>
+      <span>{{ moneyWonByPlayer }}</span>
+    </p>
+    <p>
+      <span>Rounds Played: </span>
+      <span>{{ roundsPlayedByPlayer }}</span>
+    </p>
+    <p>
+      <span>Win Rate: </span>
+      <span>{{ playersWinRate }}%</span>
+    </p>
+  </div>
+</div>

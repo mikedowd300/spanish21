@@ -1,0 +1,36 @@
+<div class="wong-strategy-wrapper">
+  <strategy-selector
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.WONG"
+    [activeStrategy$]="activeStrategy$"
+  ></strategy-selector>
+  <div class="content">
+    <div class="button-column">
+      <button (click)="addHand()">Add Hand</button>
+    @if(this.activeStrategy.wongedHands.length > 0) {
+      <button (click)="deleteHand()">Delete Hand</button>
+    }
+    </div>
+    <div class="input-column">
+    @for(hand of activeStrategy.wongedHands; track hand;) {
+      <div class="row">
+        <div class="enter-hand">
+          <label for="">Enter at TC:</label>
+          <div class="input-wrapper second-column">
+            <input type="number"[(ngModel)]="hand.enter">
+          </div>
+        </div>
+    
+        <div class="exit-hand">
+          <label for="">Exit at TC:</label>
+          <div class="input-wrapper second-column">
+            <input type="number" [(ngModel)]="hand.exit">
+          </div>
+        </div>
+      </div>
+    }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+:host {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .select-wrapper, .number-input-wrapper {
+    border: 1px solid #84fec2;
+    width: 60px;
+    background-color: white;
+    height: 32px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    margin: 0 12px;
+
+    &.wider {
+      width: 100px;
+    }
+    
+    &.widest {
+      width: 180px;
+    }
+
+    select, input {
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  .section-description {
+    text-align: center;
+    font-weight: 800;
+    margin: 12px 0;
+  }
+
+  .deviations-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    box-sizing: border-box;
+
+    .intro-row {
+      display: flex;
+      margin: auto;
+      box-sizing: border-box;
+      width: calc(100% - 32px);
+      max-width: 700px;
+      box-sizing: border-box;
+
+      h1 {
+        text-align: center;
+        width: 100%;
+        font-size: 24px;
+        margin: 12px 0 0;
+      }
+
+      button {
+        margin-top: 12px;
+        min-width: 40px;
+        height: 40px;
+
+        .exit-to-header {
+          text-decoration: none;
+          display: block;
+        }
+      }
+    }
+
+    .content-wrapper {
+      box-sizing: border-box;
+      width: calc(100% - 32px);
+      padding: 12px;
+      margin: 0 16px 16px;
+
+      .deviation-table-conditions-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+
+      div.input-wrapper, .exception-wrapper {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        justify-content: space-between;
+        padding: 4px 2px;
+
+        &:nth-child(odd) {
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      // .results {
+      //   width: 100%;
+      //   box-sizing: border-box;
+      //   padding: 12px;
+      //   min-height: 200px;
+      //   border: 1px solid red;
+      // }
+
+      .deviations-button {
+        font-size: 16px;
+        margin: 16px 8px;
+        width: 50%;
+      }
+    }
+
+    .exceptions-section-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

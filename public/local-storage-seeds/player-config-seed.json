@@ -1,0 +1,14 @@
+{
+  "Player Spread": {
+    "title": "Ploppy 2",
+    "description": "Just eating cards",
+    "initialBettingUnit": 25,
+    "initialBankroll": 100000000,
+    "playStrategyTitle": "basicH17Strategy",
+    "betSpreadStrategyTitle": "noSpread",
+    "unitResizingStrategyTitle": "neverResize",
+    "tippngStrategyTitle": "neverTip",
+    "wongingStrategyTitle": "neverWong",
+    "countStrategyTitle": "Hi Lo"
+  }
+}

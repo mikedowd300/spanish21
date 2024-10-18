@@ -1,0 +1,16 @@
+{
+  "Table Seed": {
+    "title": "Default Table",
+    "players": [
+      {
+        "seatNumber": 1,
+        "playerConfigTitle": "Ploppy 1"
+      },
+      {
+        "seatNumber": 2,
+        "playerConfigTitle": "Ploppy 2"
+      }
+    ],
+    "conditionsTitle": "Default Conditions"
+  }
+}

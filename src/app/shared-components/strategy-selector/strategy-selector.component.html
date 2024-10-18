@@ -1,0 +1,54 @@
+<div class="strategy-selector-wrapper">
+  <h2>{{title}}</h2>
+
+  @if(showSelectBox$ | async) {
+    <div class="row">
+      <div class="config input-wrapper">
+        <select name="strategies" id="" (change)="selectStrategy($event)">
+        @for(key of strategyKeys; track key) {
+          <option [value]="key">{{key}}</option>
+        }  
+        </select>
+      </div>
+  
+      <div class="button-container">
+      @if(showAddButton$ | async) {
+        <button (click)="addStrategy()">Add</button>
+      }
+      @if(showDeleteButton$ | async) {
+        <button (click)="deleteStrategy()">Delete</button>
+      } 
+      @if (showSaveButton$ | async) {
+        <button (click)="saveStrategy()">Save</button>
+      }
+      </div>
+    </div>
+  }
+
+  <div class="title-wrapper">
+  @if(showEditableTitle$ | async) {
+    <div class="row">
+      <div class="input-wrapper">
+        <input #newStrategy
+          type="text" 
+          [(ngModel)]="activeStrategy.title"
+          (change)="handleTitleEdit()"
+          placeholder="Enter a valid name!"
+        >
+      </div> 
+      @if (showSaveButton$ | async) {
+        <button (click)="saveStrategy()">Save</button>
+      }
+    </div>
+    @if(activeStrategy.title.length < 3) {
+      <p class="naming-hint">
+        A valid name requires 3 or more characters!
+      </p>
+    }
+  } @else {
+    <h3>
+      Click "Add" to create a new configuration from {{activeStrategy.title}}!
+    </h3>
+  }
+  </div>
+</div>
